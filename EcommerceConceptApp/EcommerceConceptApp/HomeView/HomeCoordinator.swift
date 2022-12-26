@@ -24,7 +24,12 @@ final class HomeCoordinator: Coordinator {
     }
     
     func toDetail() {
+        let detailCoordinator = DetailCoordinator()
+        detailCoordinator.start()
+        childCoordinators.append(detailCoordinator)
+        let vc = detailCoordinator.rootViewController
         
+        self.rootViewController.pushViewController(vc, animated: true)
     }
     
     func toHome() {

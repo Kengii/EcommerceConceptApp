@@ -39,6 +39,9 @@
 		7F350E83295A07C900B22A58 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F350E82295A07C900B22A58 /* CloseButton.swift */; };
 		7F350E85295A092400B22A58 /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F350E84295A092400B22A58 /* DropDownView.swift */; };
 		7F350E87295A2CFF00B22A58 /* ProductDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F350E86295A2CFF00B22A58 /* ProductDetail.swift */; };
+		7F350E8C295A316C00B22A58 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F350E8B295A316C00B22A58 /* DetailViewModel.swift */; };
+		7F350E8E295A317A00B22A58 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F350E8D295A317A00B22A58 /* DetailView.swift */; };
+		7F350E90295A318900B22A58 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F350E8F295A318900B22A58 /* DetailCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +79,9 @@
 		7F350E82295A07C900B22A58 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		7F350E84295A092400B22A58 /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
 		7F350E86295A2CFF00B22A58 /* ProductDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetail.swift; sourceTree = "<group>"; };
+		7F350E8B295A316C00B22A58 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		7F350E8D295A317A00B22A58 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		7F350E8F295A318900B22A58 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,7 @@
 		7F350E2C2958DAA700B22A58 /* EcommerceConceptApp */ = {
 			isa = PBXGroup;
 			children = (
+				7F350E88295A313B00B22A58 /* Detail */,
 				7F350E422958DB2900B22A58 /* Models */,
 				7F350E7A295A04C500B22A58 /* HomeView */,
 				7F350E7B295A04E400B22A58 /* Filter */,
@@ -257,6 +264,32 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		7F350E88295A313B00B22A58 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				7F350E8A295A315200B22A58 /* ViewModel */,
+				7F350E89295A314500B22A58 /* View */,
+				7F350E8F295A318900B22A58 /* DetailCoordinator.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		7F350E89295A314500B22A58 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7F350E8D295A317A00B22A58 /* DetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7F350E8A295A315200B22A58 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7F350E8B295A316C00B22A58 /* DetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -335,6 +368,7 @@
 				7F350E752959FE8A00B22A58 /* BestSale.swift in Sources */,
 				7F350E6D2959F7FD00B22A58 /* TopView.swift in Sources */,
 				7F350E772959FF1600B22A58 /* ProductCard.swift in Sources */,
+				7F350E8C295A316C00B22A58 /* DetailViewModel.swift in Sources */,
 				7F350E4C2958DBFD00B22A58 /* Coordinator.swift in Sources */,
 				7F350E2E2958DAA700B22A58 /* AppDelegate.swift in Sources */,
 				7F350E83295A07C900B22A58 /* CloseButton.swift in Sources */,
@@ -344,9 +378,11 @@
 				7F350E7F295A050600B22A58 /* FilterViewModel.swift in Sources */,
 				7F350E6F2959F92300B22A58 /* CategoryView.swift in Sources */,
 				7F350E692958E42300B22A58 /* UICOlor + hex.swift in Sources */,
+				7F350E90295A318900B22A58 /* DetailCoordinator.swift in Sources */,
 				7F350E712959F98E00B22A58 /* CategoryItems.swift in Sources */,
 				7F350E502958DC7400B22A58 /* HomeData.swift in Sources */,
 				7F350E732959FC0000B22A58 /* SearchView.swift in Sources */,
+				7F350E8E295A317A00B22A58 /* DetailView.swift in Sources */,
 				7F350E85295A092400B22A58 /* DropDownView.swift in Sources */,
 				7F350E542958DF0B00B22A58 /* HomeViewModel.swift in Sources */,
 				7F350E4E2958DC3B00B22A58 /* ApiManager.swift in Sources */,

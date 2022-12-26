@@ -29,9 +29,19 @@ struct HomeView: View {
                 }
                 .frame(height: 95)
                 SearchView(viewModel: viewModel)
+                HStack {
+                    MarkText("Hot Sales", size: 25)
+                    Spacer()
+                    Button {
+                        print("Hot Sales button pressed")
+                    } label: {
+                        MarkText("see more", size: 15)
+                    }
+                    .foregroundColor(Color.newOrange)
+                }
                 HotSalesView(hotSalesItems: $viewModel.hotSales)
                     .frame(height: 200)
-                    .cornerRadius(5)
+                    .cornerRadius(12)
                 HStack {
                     MarkText("Best Seller", size: 25)
                     Spacer()
@@ -47,10 +57,11 @@ struct HomeView: View {
                         ProductCard(product: product)
                             .frame(height: 227)
                             .onTapGesture {
+                                viewModel.didTapDetail()
                             }
                     }
                 }
-            }.padding()
+            }
         }
         .padding([.leading, .trailing, .top])
         .padding(.bottom, 80)
@@ -58,7 +69,7 @@ struct HomeView: View {
             .environmentObject(viewModel)
     }
         .background(.regularMaterial)
-        
+        .tabViewStyle(.page(indexDisplayMode: .never))
         
     }
 }

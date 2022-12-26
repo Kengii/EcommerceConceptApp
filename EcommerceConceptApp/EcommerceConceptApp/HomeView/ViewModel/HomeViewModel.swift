@@ -44,19 +44,22 @@ final class HomeViewModel: ObservableObject {
     ]
     
     func didTapPage(_ page: PageType) {
-//        switch page {
-//            
-//        case .home:
-//            
-//        case .cart:
-//            
-//        case .favorites:
-//            
-//        case .profile:
-//            
-//        }
+        switch page {
+            
+        case .home:
+            coordinator.toHome()
+        case .cart:
+            coordinator.toCart()
+        case .favorites:
+            coordinator.toFavorites()
+        case .profile:
+            coordinator.toProfile()
+        }
     }
     
+    func didTapDetail() {
+        coordinator.toDetail()
+    }
     
 }
 

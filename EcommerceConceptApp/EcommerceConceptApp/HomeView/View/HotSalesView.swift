@@ -13,16 +13,6 @@ struct HotSalesView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                MarkText("Hot Sales", size: 25)
-                Spacer()
-                Button {
-                    print("Hot Sales button pressed")
-                } label: {
-                    MarkText("see more", size: 15)
-                }
-                .foregroundColor(Color.newOrange)
-            }
             TabView {
                 ForEach(hotSalesItems, id: \.id) { product in
                     ZStack {
