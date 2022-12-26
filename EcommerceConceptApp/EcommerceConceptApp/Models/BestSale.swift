@@ -1,43 +1,41 @@
 //
-//  Product.swift
+//  BestSale.swift
 //  EcommerceConceptApp
 //
-//  Created by Владимир Данилович on 25.12.22.
+//  Created by Владимир Данилович on 26.12.22.
 //
 
 import Foundation
 
-struct Product: Decodable {
+struct BestSeler: Decodable {
     let id: Int
-    let isNew: Bool?
-    let title, subtitle: String
+    let isFavorites: Bool
+    let title: String
+    let priceWithoutDiscount, discountPrice: Int
     let picture: URL?
     var pictureData: Data?
-    let isBuy: Bool
     
     enum CodingKeys: CodingKey {
         case id
-        case isNew
+        case isFavorites
         case title
-        case subtitle
+        case priceWithoutDiscount
+        case discountPrice
         case picture
-        case isBuy
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(Int.self, forKey: .id)
-        self.isNew = try container.decodeIfPresent(Bool.self, forKey: .isNew)
+        self.isFavorites = try container.decode(Bool.self, forKey: .isFavorites)
         self.title = try container.decode(String.self, forKey: .title)
-        self.subtitle = try container.decode(String.self, forKey: .subtitle)
-        self.isBuy = try container.decode(Bool.self, forKey: .isBuy)
+        self.priceWithoutDiscount = try container.decode(Int.self, forKey: .priceWithoutDiscount)
+        self.discountPrice = try container.decode(Int.self, forKey: .discountPrice)
         self.picture = try container.decode(URL.self, forKey: .picture)
         self.pictureData = nil
-    
-        if let url = self.picture {
+        if let url = picture {
             let data = try? Data(contentsOf: url)
-            self.pictureData = data
+            pictureData = data
         }
     }
 }
-

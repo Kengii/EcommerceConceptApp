@@ -9,4 +9,5 @@ import Foundation
 
 struct HomeData: Decodable {
     let homeStore: [Product]
+    let bestSeller: [BestSeler]
 }

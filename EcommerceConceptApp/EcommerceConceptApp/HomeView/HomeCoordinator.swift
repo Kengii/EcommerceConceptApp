@@ -22,4 +22,24 @@ final class HomeCoordinator: Coordinator {
         let homeViewController = UIHostingController(rootView: HomeView(viewModel: vm))
         self.rootViewController.viewControllers = [homeViewController]
     }
+    
+    func toDetail() {
+        
+    }
+    
+    func toHome() {
+        rootViewController.popToRootViewController(animated: true)
+    }
+    
+    func toCart() {
+        
+    }
+    
+    func toFavorites() {
+        
+    }
+    
+    func toProfile() {
+        
+    }
 }
