@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TopView: View {
     
-    @State var isFilterScreenPresenting: Bool = false
+    
     
     var body: some View {
         HStack {
@@ -20,15 +20,9 @@ struct TopView: View {
             Image(systemName: "chevron.down")
                 .foregroundColor(.gray)
             Spacer()
-            Image("filter")
-                .onTapGesture {
-                    isFilterScreenPresenting.toggle()
-                }
+            
         }
-        .sheet(isPresented: $isFilterScreenPresenting) {
-            FilterView(viewModel: FilterViewModel())
-                .presentationDetents([.medium])
-        }
+        
         
     }
 }

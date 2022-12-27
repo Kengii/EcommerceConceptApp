@@ -19,7 +19,7 @@ struct CloseButton: View {
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(.black)
+                    .foregroundColor(.newBlue)
                 Image(systemName: imageName)
                     .foregroundColor(.white)
             }

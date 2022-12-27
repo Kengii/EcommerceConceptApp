@@ -14,17 +14,17 @@ enum DropDownType: String, CaseIterable {
 }
 
 struct DropDownView: View {
-    
+
     @EnvironmentObject var vm: FilterViewModel
-    
+
     @Binding var selectedOption: String
-    
+
     @State var isExpanded: Bool = false
-    
+
     @State var height: CGFloat = 37
-    
+
     let type: DropDownType
-    
+
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 5)
@@ -39,24 +39,24 @@ struct DropDownView: View {
                         .rotationEffect(.degrees(isExpanded ? -540 : 0))
                         .animation(.linear, value: isExpanded)
                 }
-                .padding([.leading, .trailing])
+                    .padding([.leading, .trailing])
                 if isExpanded {
                     switch type {
                     case .brand:
-                        ForEach(vm.brands.filter({$0 != selectedOption}), id: \.self) { brand in
+                        ForEach(vm.brands.filter({ $0 != selectedOption }), id: \.self) { brand in
                             HStack {
                                 MarkText(brand, size: 18)
                                     .foregroundColor(.black)
                                 Spacer()
                             }
-                            .padding(.leading)
-                            .onTapGesture {
+                                .padding(.leading)
+                                .onTapGesture {
                                 selectedOption = brand
                                 isExpanded = false
                                 height = 37
                             }
                         }
-                        .transition(.scale)
+                            .transition(.scale)
                     case .price:
                         GeometryReader { geometry in
                             VStack {
@@ -69,34 +69,36 @@ struct DropDownView: View {
                                         }
                                     }
                                 }
-                                .padding(.trailing)
+                                    .padding(.trailing)
                                 HStack {
                                     Picker("minimum", selection: $vm.selectedPriceMinimum) {
                                         ForEach(Array(stride(from: vm.priceMinimum, to: vm.priceMaximum, by: 200)), id: \.self) { num in
                                             Text("\(num)")
                                         }
                                     }
-                                    .pickerStyle(.wheel)
-                                    .frame(width: geometry.size.width / 2, height: 150, alignment: .center)
-                                    Picker("maximum", selection: $vm.selctedPriceMaximum) {
+                                        .pickerStyle(.wheel)
+                                        .frame(width: geometry.size.width / 2,
+                                        height: 150,
+                                        alignment: .center)
+                                    Picker("maximum", selection: $vm.selectedPriceMaximum) {
                                         ForEach(Array(stride(from: vm.priceMaximum, to: vm.priceMinimum, by: -200)), id: \.self) { num in
                                             Text("\(num)")
                                         }
                                     }
-                                    pickerStyle(.wheel)
-                                    frame(width: geometry.size.width / 2, height: 150, alignment: .center)
+                                        .pickerStyle(.wheel)
+                                        .frame(width: geometry.size.width / 2, height: 150, alignment: .center)
                                 }
                             }
                         }
-                        .transition(.scale)
+                            .transition(.scale)
                     case .size: EmptyView()
                     }
                 }
             }
         }
-        .onTapGesture {
+            .onTapGesture {
             withAnimation {
-                guard type != . size else { return }
+                guard type != .size else { return }
                 isExpanded.toggle()
                 if isExpanded {
                     switch type {
@@ -112,7 +114,7 @@ struct DropDownView: View {
                 }
             }
         }
-        .frame(height: height)
+            .frame(height: height)
     }
 }
 

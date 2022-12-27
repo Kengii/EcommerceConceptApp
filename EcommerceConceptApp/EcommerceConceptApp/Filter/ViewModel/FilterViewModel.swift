@@ -12,11 +12,11 @@ final class FilterViewModel: ObservableObject {
     @Published var brand: String = "Samsung"
     @Published var selectedPriceMinimum: Int = 0 {
         willSet {
-            priceRange = "$\(newValue) - $\(selectedPriceMinimum)"
+            priceRange = "$\(newValue) - $\(selectedPriceMaximum)"
         }
     }
     
-    @Published var selctedPriceMaximum: Int = 10000 {
+    @Published var selectedPriceMaximum: Int = 10000 {
         willSet {
             priceRange = "$\(selectedPriceMinimum) - $\(newValue)"
         }

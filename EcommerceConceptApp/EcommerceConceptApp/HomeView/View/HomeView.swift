@@ -10,6 +10,8 @@ import SwiftUI
 struct HomeView: View {
 
     @ObservedObject var viewModel: HomeViewModel
+    
+    @State var isFilterScreenPresenting: Bool = false
 
     private let bestSaleGridItem = GridItem(.fixed(181))
 
@@ -17,7 +19,14 @@ struct HomeView: View {
         ZStack(alignment: .bottom) {
         ScrollView {
             VStack {
-                TopView()
+                HStack {
+                    TopView()
+                    Image("filter")
+                        .onTapGesture {
+                            isFilterScreenPresenting.toggle()
+                        }
+                }
+                
                 CategoryView()
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 23) {
@@ -69,7 +78,12 @@ struct HomeView: View {
             .environmentObject(viewModel)
     }
         .background(.regularMaterial)
-        .tabViewStyle(.page(indexDisplayMode: .never))
+//        .tabViewStyle(.page(indexDisplayMode: .never))
+        
+        .sheet(isPresented: $isFilterScreenPresenting) {
+            FilterView(viewModel: FilterViewModel())
+                .presentationDetents([.medium])
+        }
         
     }
 }

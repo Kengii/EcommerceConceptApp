@@ -11,6 +11,7 @@ import Combine
 protocol API {
     func getHomeStore() -> AnyPublisher<HomeData, Never>
     func getProductDetail() -> AnyPublisher<ProductDetail, Never>
+    func getBasketInfo() -> AnyPublisher<Basket, Never>
 }
 
 final class ApiManager: API {
@@ -48,6 +49,19 @@ final class ApiManager: API {
             .map(\.data)
             .decode(type: ProductDetail.self, decoder: decoder)
             .catch { error in Just(ProductDetail()) }
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getBasketInfo() -> AnyPublisher<Basket, Never> {
+        let link = "https://run.mocky.io/v3/53539a72-3c5f-4f30-bbb1-6ca10d42c149"
+        guard let url = URL(string: link) else {
+            return Just(Basket(basket: [], delivary: "", id: "", total: 0)).eraseToAnyPublisher()
+        }
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .map(\.data)
+            .decode(type: Basket.self, decoder: decoder)
+            .replaceError(with: Basket(basket: [], delivary: "", id: "", total: 0))
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }
