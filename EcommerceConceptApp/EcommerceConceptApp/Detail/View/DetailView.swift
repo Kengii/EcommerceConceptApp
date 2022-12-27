@@ -19,7 +19,7 @@ struct DetailView: View {
                 MarkText("Product details", size: 18, weight: .medium)
                 Spacer()
                 Button {
-                    
+                    viewModel.didTapCart()
                 } label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)

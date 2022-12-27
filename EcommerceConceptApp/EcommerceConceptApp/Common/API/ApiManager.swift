@@ -56,12 +56,12 @@ final class ApiManager: API {
     func getBasketInfo() -> AnyPublisher<Basket, Never> {
         let link = "https://run.mocky.io/v3/53539a72-3c5f-4f30-bbb1-6ca10d42c149"
         guard let url = URL(string: link) else {
-            return Just(Basket(basket: [], delivary: "", id: "", total: 0)).eraseToAnyPublisher()
+            return Just(Basket(basket: [], delivery: "", id: "", total: 0)).eraseToAnyPublisher()
         }
         return URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
             .decode(type: Basket.self, decoder: decoder)
-            .replaceError(with: Basket(basket: [], delivary: "", id: "", total: 0))
+            .replaceError(with: Basket(basket: [], delivery: "", id: "", total: 0))
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }

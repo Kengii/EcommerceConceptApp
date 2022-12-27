@@ -10,8 +10,12 @@ import Combine
 
 final class CartViewModel: ObservableObject {
     
+    init() {
+        self.getBasket()
+    }
     
-    @Published var basket: Basket = Basket(basket: [], delivary: "", id: "", total: 0)
+    
+    @Published var basket: Basket = Basket(basket: [], delivery: "", id: "", total: 0)
     @Published var cartItems: [BasketItem] = []
     @Published var total = 0
     

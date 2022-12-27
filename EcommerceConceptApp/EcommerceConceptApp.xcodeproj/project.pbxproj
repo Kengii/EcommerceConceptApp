@@ -49,6 +49,8 @@
 		7F350E9F295B560E00B22A58 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F350E9E295B560E00B22A58 /* CartViewModel.swift */; };
 		7F350EA1295B567000B22A58 /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F350EA0295B567000B22A58 /* Basket.swift */; };
 		7F350EA3295B5B5900B22A58 /* MocStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F350EA2295B5B5900B22A58 /* MocStorage.swift */; };
+		7F350EA6295B6D4900B22A58 /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F350EA5295B6D4900B22A58 /* CartCell.swift */; };
+		7F350EA8295B6EFF00B22A58 /* ItemCounterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F350EA7295B6EFF00B22A58 /* ItemCounterButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +97,8 @@
 		7F350E9E295B560E00B22A58 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		7F350EA0295B567000B22A58 /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
 		7F350EA2295B5B5900B22A58 /* MocStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocStorage.swift; sourceTree = "<group>"; };
+		7F350EA5295B6D4900B22A58 /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
+		7F350EA7295B6EFF00B22A58 /* ItemCounterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCounterButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				7F350E422958DB2900B22A58 /* Models */,
-				7F350E88295A313B00B22A58 /* Detail */,
 				7F350E7A295A04C500B22A58 /* HomeView */,
+				7F350E88295A313B00B22A58 /* Detail */,
 				7F350E99295B55B100B22A58 /* Cart */,
 				7F350E7B295A04E400B22A58 /* Filter */,
 				7F350E472958DBCC00B22A58 /* Common */,
@@ -330,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				7F350E9C295B55F300B22A58 /* CartView.swift */,
+				7F350EA4295B6D2B00B22A58 /* SubViews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -340,6 +345,15 @@
 				7F350E9E295B560E00B22A58 /* CartViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7F350EA4295B6D2B00B22A58 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				7F350EA5295B6D4900B22A58 /* CartCell.swift */,
+				7F350EA7295B6EFF00B22A58 /* ItemCounterButton.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,6 +443,8 @@
 				7F350E98295B399300B22A58 /* InfoView.swift in Sources */,
 				7F350E8C295A316C00B22A58 /* DetailViewModel.swift in Sources */,
 				7F350E4C2958DBFD00B22A58 /* Coordinator.swift in Sources */,
+				7F350EA8295B6EFF00B22A58 /* ItemCounterButton.swift in Sources */,
+				7F350EA6295B6D4900B22A58 /* CartCell.swift in Sources */,
 				7F350E2E2958DAA700B22A58 /* AppDelegate.swift in Sources */,
 				7F350E83295A07C900B22A58 /* CloseButton.swift in Sources */,
 				7F350EA3295B5B5900B22A58 /* MocStorage.swift in Sources */,

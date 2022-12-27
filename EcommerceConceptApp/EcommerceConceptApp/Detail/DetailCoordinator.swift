@@ -14,8 +14,15 @@ final class DetailCoordinator: Coordinator {
     
     func start() {
         let vm = DetailViewModel(coordinator: self)
-        let detailViewController = UIHostingController(rootView: DetailView(viewModel: DetailViewModel(coordinator: self)))
+        let detailViewController = UIHostingController(rootView: DetailView(viewModel: vm))
         
         rootViewController = detailViewController
+    }
+    
+    func toCart() {
+        let vm = CartViewModel()
+        let cartViewController = UIHostingController(rootView: CartView(viewModel: vm))
+        
+        rootViewController.navigationController?.pushViewController(cartViewController, animated: true)
     }
 }

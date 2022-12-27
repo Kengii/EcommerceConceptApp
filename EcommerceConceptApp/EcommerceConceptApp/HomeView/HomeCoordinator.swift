@@ -38,7 +38,7 @@ final class HomeCoordinator: Coordinator {
     
     func toCart() {
         let vm = CartViewModel()
-        let cartViewController = UIHostingController(rootView: CartView())
+        let cartViewController = UIHostingController(rootView: CartView(viewModel: vm))
         
         rootViewController.pushViewController(cartViewController, animated: true)
         

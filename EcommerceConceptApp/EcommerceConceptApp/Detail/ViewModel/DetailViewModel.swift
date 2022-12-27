@@ -31,7 +31,17 @@ final class DetailViewModel: ObservableObject {
     
     private let api = ApiManager()
     
+    private let storage = MocStorage.shared
+    
     private var cancellable = Set<AnyCancellable>()
+    
+    func didTapAddToCart() {
+        storage.addToCart(detail)
+    }
+    
+    func didTapCart() {
+        coordinator.toCart()
+    }
     
 }
 

@@ -131,7 +131,7 @@ struct InfoView: View {
                         .padding(.trailing, 50)
                         .frame(height: 50)
                         Button {
-                            
+                            viewModel.didTapAddToCart()
                         } label: {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 10)

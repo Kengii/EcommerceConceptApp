@@ -21,6 +21,10 @@ final class HomeViewModel: ObservableObject {
         
         self.coordinator = coordinator
         getHomeData()
+        storage.$count
+            .assign(to: \.cartItemsCount, on: self)
+            .store(in: &cancelleble)
+        
     }
     
     @Published var selectedCategory: String = "Phones"
@@ -31,6 +35,7 @@ final class HomeViewModel: ObservableObject {
     @Published var bestSale = [BestSeler]()
     
     private let coordinator: HomeCoordinator
+    private let storage = MocStorage.shared
     private let api = ApiManager()
     
     var cancelleble = Set<AnyCancellable>()
