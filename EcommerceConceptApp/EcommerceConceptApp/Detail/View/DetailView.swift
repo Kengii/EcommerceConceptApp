@@ -12,7 +12,32 @@ struct DetailView: View {
     @ObservedObject var viewModel: DetailViewModel
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            HStack {
+                CloseButton(imageName: "chevron.left")
+                Spacer()
+                MarkText("Product details", size: 18, weight: .medium)
+                Spacer()
+                Button {
+                    
+                } label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundColor(Color.newOrange)
+                        Image("cart")
+                            .foregroundColor(.white)
+                    }
+                    
+                }
+                .frame(width: 37, height: 37)
+            }
+            
+            .padding()
+            PageView(imageData: viewModel.detail.imagesData)
+                .frame(height: 300)
+            InfoView()
+                .environmentObject(viewModel)
+        }
     }
 }
 
