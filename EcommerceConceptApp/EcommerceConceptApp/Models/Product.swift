@@ -14,7 +14,7 @@ struct Product: Decodable {
     let picture: URL?
     var pictureData: Data?
     let isBuy: Bool
-    
+
     enum CodingKeys: CodingKey {
         case id
         case isNew
@@ -23,7 +23,7 @@ struct Product: Decodable {
         case picture
         case isBuy
     }
-    
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(Int.self, forKey: .id)
@@ -33,7 +33,7 @@ struct Product: Decodable {
         self.isBuy = try container.decode(Bool.self, forKey: .isBuy)
         self.picture = try container.decode(URL.self, forKey: .picture)
         self.pictureData = nil
-    
+
         if let url = self.picture {
             let data = try? Data(contentsOf: url)
             self.pictureData = data

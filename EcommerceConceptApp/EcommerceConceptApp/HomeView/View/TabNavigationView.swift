@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct TabNavigationView: View {
-    
+
     @EnvironmentObject var viewModel: HomeViewModel
-    
+
     let tabs = PageType.allCases.filter { $0 != .home }
-    
+
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 30)
@@ -50,9 +50,9 @@ struct TabNavigationView: View {
                     }
                 }
             }
-            .padding()
+                .padding()
         }
-        .frame(height: 72)
+            .frame(height: 72)
     }
 }
 

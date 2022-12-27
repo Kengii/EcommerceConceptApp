@@ -16,30 +16,29 @@ enum PageType: String, CaseIterable {
 }
 
 final class HomeViewModel: ObservableObject {
-    
+
     init(coordinator: HomeCoordinator) {
-        
+
         self.coordinator = coordinator
         getHomeData()
         storage.$count
             .assign(to: \.cartItemsCount, on: self)
             .store(in: &cancelleble)
-        
     }
-    
+
     @Published var selectedCategory: String = "Phones"
     @Published var searchText: String = ""
     @Published var cartItemsCount = 0
-    
+
     @Published var hotSales = [Product]()
     @Published var bestSale = [BestSeler]()
-    
+
     private let coordinator: HomeCoordinator
     private let storage = MocStorage.shared
     private let api = ApiManager()
-    
+
     var cancelleble = Set<AnyCancellable>()
-    
+
     let categories: [String] = [
         "Phones",
         "Computers",
@@ -47,10 +46,10 @@ final class HomeViewModel: ObservableObject {
         "Books",
         "Other"
     ]
-    
+
     func didTapPage(_ page: PageType) {
         switch page {
-            
+
         case .home:
             coordinator.toHome()
         case .cart:
@@ -61,11 +60,10 @@ final class HomeViewModel: ObservableObject {
             coordinator.toProfile()
         }
     }
-    
+
     func didTapDetail() {
         coordinator.toDetail()
     }
-    
 }
 
 extension HomeViewModel {
@@ -74,8 +72,8 @@ extension HomeViewModel {
             self?.hotSales = homeData.homeStore
             self?.bestSale = homeData.bestSeller
         }
-        .store(in: &cancelleble)
+            .store(in: &cancelleble)
     }
 }
-    
+
 

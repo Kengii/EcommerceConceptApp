@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ProductCard: View {
-    
+
     var product: BestSeler
-    
+
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 18)
@@ -30,8 +30,8 @@ struct ProductCard: View {
                 }
                 MarkText("Samsung Galaxy S20 Ultra", size: 10)
             }
-            .padding()
-            
+                .padding()
+
             VStack {
                 HStack {
                     Spacer()
@@ -43,14 +43,14 @@ struct ProductCard: View {
                             .frame(width: 11, height: 10)
                             .foregroundColor(.red)
                     }
-                    .frame(width: 25)
-                    .shadow(color: Color(UIColor.lightGray.withAlphaComponent(0.5)),
-                            radius: 2)
+                        .frame(width: 25)
+                        .shadow(color: Color(UIColor.lightGray.withAlphaComponent(0.5)),
+                        radius: 2)
                 }
                 Spacer(minLength: 192)
             }
-            
-            .padding()
+
+                .padding()
         }
     }
 }

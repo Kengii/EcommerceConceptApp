@@ -9,18 +9,18 @@ import SwiftUI
 import Combine
 
 final class CartViewModel: ObservableObject {
-    
+
     init() {
         self.getBasket()
     }
-    
-    
+
+
     @Published var basket: Basket = Basket(basket: [], delivery: "", id: "", total: 0)
     @Published var cartItems: [BasketItem] = []
     @Published var total = 0
-    
+
     private let api: API = ApiManager()
-    
+
     private var cancellable = Set<AnyCancellable>()
 }
 
@@ -31,6 +31,6 @@ extension CartViewModel {
             self?.basket = basket
             self?.cartItems = basket.basket
         }
-        .store(in: &cancellable)
+            .store(in: &cancellable)
     }
 }

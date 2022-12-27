@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct CartView: View {
-    
+
     @Environment(\.dismiss) var dismiss
-    
+
     @ObservedObject var viewModel: CartViewModel
-    
+
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
@@ -30,13 +30,13 @@ struct CartView: View {
                                 .foregroundColor(.white)
                         }
                     }
-                    .cornerRadius(10)
-                    .frame(width: 37, height: 37)
+                        .cornerRadius(10)
+                        .frame(width: 37, height: 37)
                 }
                 Spacer().frame(height: 50)
                 MarkText("My cart", size: 35, weight: .bold)
             }
-            .padding()
+                .padding()
             Spacer().frame(height: 50)
             ZStack {
                 RoundedRectangle(cornerRadius: 30)
@@ -48,8 +48,8 @@ struct CartView: View {
                             CartCell(item: item, total: $viewModel.total)
                         }
                     }
-                    .padding(.top, 80)
-                    .padding([.leading, .trailing])
+                        .padding(.top, 80)
+                        .padding([.leading, .trailing])
                     Color(.gray)
                         .frame(height: 1)
                     VStack {
@@ -68,7 +68,7 @@ struct CartView: View {
                                 .foregroundColor(.white)
                         }
                     }
-                    .padding([.leading, .trailing], 32)
+                        .padding([.leading, .trailing], 32)
                     Color(.gray)
                         .frame(height: 1)
                     Button {
@@ -80,10 +80,10 @@ struct CartView: View {
                             MarkText("Checkout", size: 20, weight: .bold)
                                 .foregroundColor(.white)
                         }
-                        .frame(height: 55)
+                            .frame(height: 55)
                     }
-                    .padding([.leading, .trailing], 44)
-                    .padding([.top, .bottom])
+                        .padding([.leading, .trailing], 44)
+                        .padding([.top, .bottom])
                 }
             }
         }

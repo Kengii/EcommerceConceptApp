@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct CategoryItems: View {
-    
+
     @EnvironmentObject var vm: HomeViewModel
-    
+
     let isSelected: Bool
-    
+
     var imageName: String
-    
+
     var body: some View {
         VStack {
             ZStack {
@@ -25,18 +25,18 @@ struct CategoryItems: View {
                     .renderingMode(.template)
                     .foregroundColor(isSelected ? .white : .gray)
             }
-            .shadow(color: Color(uiColor: .lightGray.withAlphaComponent(0.4)),
-                    radius: 5,
-                    x: 2,
-                    y: 2)
+                .shadow(color: Color(uiColor: .lightGray.withAlphaComponent(0.4)),
+                radius: 5,
+                x: 2,
+                y: 2)
             Text(imageName)
                 .font(.system(size: 12))
                 .foregroundColor(isSelected ? Color.newOrange : .black)
         }
-        .onTapGesture {
+            .onTapGesture {
             vm.selectedCategory = imageName
         }
-        
+
     }
 }
 

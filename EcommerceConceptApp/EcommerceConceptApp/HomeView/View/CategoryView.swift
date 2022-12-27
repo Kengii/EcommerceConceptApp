@@ -18,7 +18,7 @@ struct CategoryView: View {
                 } label: {
                     MarkText("view all", size: 15)
                 }
-                .foregroundColor(.newOrange)
+                    .foregroundColor(.newOrange)
             }
         }
     }

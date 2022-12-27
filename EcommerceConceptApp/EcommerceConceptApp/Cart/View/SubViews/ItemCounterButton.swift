@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ItemCounterButton: View {
-    
+
     var priceForOne: Int
     @Binding var count: Int
     @Binding var total: Int
-    
+
     var body: some View {
         VStack(spacing: 6) {
             Button {
@@ -34,8 +34,8 @@ struct ItemCounterButton: View {
                     .foregroundColor(.white)
             }
         }
-        .padding(14)
-        .background(Color(UIColor(hex: "#282843") ?? .black))
+            .padding(14)
+            .background(Color(UIColor(hex: "#282843") ?? .black))
     }
 }
 

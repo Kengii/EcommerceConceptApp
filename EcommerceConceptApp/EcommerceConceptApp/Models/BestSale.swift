@@ -14,7 +14,7 @@ struct BestSeler: Decodable {
     let priceWithoutDiscount, discountPrice: Int
     let picture: URL?
     var pictureData: Data?
-    
+
     enum CodingKeys: CodingKey {
         case id
         case isFavorites
@@ -23,7 +23,7 @@ struct BestSeler: Decodable {
         case discountPrice
         case picture
     }
-    
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(Int.self, forKey: .id)

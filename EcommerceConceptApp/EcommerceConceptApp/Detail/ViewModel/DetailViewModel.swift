@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 final class DetailViewModel: ObservableObject {
-    
+
     init(coordinator: DetailCoordinator) {
         self.coordinator = coordinator
         getDetail()
@@ -17,32 +17,32 @@ final class DetailViewModel: ObservableObject {
             selectedColorHex = first
         }
     }
-    
+
     @Published var selectedTabIndex: Int = 0
     @Published var selectedColorHex: String = ""
-    @Published var selectedCapacity: String  = ""
-    
+    @Published var selectedCapacity: String = ""
+
     @Published var detail = ProductDetail()
     @Published var hardware: [String: String] = [:]
-    
+
     let tabs = ["Shop", "Details", "Features"]
-    
+
     private let coordinator: DetailCoordinator
-    
+
     private let api = ApiManager()
-    
+
     private let storage = MocStorage.shared
-    
+
     private var cancellable = Set<AnyCancellable>()
-    
+
     func didTapAddToCart() {
         storage.addToCart(detail)
     }
-    
+
     func didTapCart() {
         coordinator.toCart()
     }
-    
+
 }
 
 extension DetailViewModel {
@@ -56,12 +56,12 @@ extension DetailViewModel {
                 self?.selectedCapacity = firstCapacity
             }
             self?.hardware = [
-                "1cpu"    : product.cpu,
-                "2camera" : product.camera,
-                "3ram"    : product.ssd,
-                "4sd"     : product.sd
+                "1cpu": product.cpu,
+                "2camera": product.camera,
+                "3ram": product.ssd,
+                "4sd": product.sd
             ]
         }
-        .store(in: &cancellable)
+            .store(in: &cancellable)
     }
 }

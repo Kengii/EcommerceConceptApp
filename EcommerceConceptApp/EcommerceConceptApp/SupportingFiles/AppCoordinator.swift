@@ -10,15 +10,15 @@ import Combine
 
 class AppCoordinator: Coordinator {
     var rootViewController: UIViewController = UINavigationController()
-    
+
     var childCoordinators: [Coordinator] = []
-    
+
     let window: UIWindow
-    
+
     init(window: UIWindow) {
         self.window = window
     }
-    
+
     func start() {
         let homeCoordinator = HomeCoordinator()
         homeCoordinator.start()

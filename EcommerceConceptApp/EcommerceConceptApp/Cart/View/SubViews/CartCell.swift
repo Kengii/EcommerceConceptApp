@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct CartCell: View {
-    
+
     let item: BasketItem
-    
+
     @Binding var total: Int
-    
+
     @State var count: Int = 1
-    
+
     var body: some View {
         HStack {
             Image(uiImage: getImage(from: item))
@@ -33,7 +33,7 @@ struct CartCell: View {
             ItemCounterButton(priceForOne: item.price, count: $count, total: $total)
                 .clipShape(RoundedRectangle(cornerRadius: 26))
             Button {
-                
+
             } label: {
                 Image(systemName: "trash")
                     .foregroundColor(.gray)
@@ -41,7 +41,7 @@ struct CartCell: View {
 
         }
     }
-    
+
     func getImage(from item: BasketItem) -> UIImage {
         if let data = item.imageData {
             return UIImage(data: data) ?? UIImage()

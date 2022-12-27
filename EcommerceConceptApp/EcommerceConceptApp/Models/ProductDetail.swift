@@ -17,12 +17,12 @@ struct ProductDetail: Decodable {
     let price: Int
     let rating: Double
     let sd, ssd, title: String
-    
+
     enum CodingKeys: String, CodingKey {
         case cpu = "CPU"
         case camera, capacity, color, id, images, isFavorites, price, rating, sd, ssd, title
     }
-    
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.cpu = try container.decode(String.self, forKey: .cpu)
@@ -37,13 +37,13 @@ struct ProductDetail: Decodable {
         self.sd = try container.decode(String.self, forKey: .sd)
         self.ssd = try container.decode(String.self, forKey: .ssd)
         self.title = try container.decode(String.self, forKey: .title)
-        
+
         images.forEach { url in
             let data = try? Data(contentsOf: url)
             imagesData.append(data)
         }
     }
-    
+
     init() {
         self.cpu = ""
         self.camera = ""

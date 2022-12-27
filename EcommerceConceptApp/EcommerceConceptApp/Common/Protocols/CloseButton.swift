@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct CloseButton: View {
-    
+
     @Environment(\.dismiss) var dismiss
-    
+
     let imageName: String
-    
+
     var body: some View {
         Button {
             dismiss.callAsFunction()
@@ -23,9 +23,9 @@ struct CloseButton: View {
                 Image(systemName: imageName)
                     .foregroundColor(.white)
             }
-            .frame(width: 37, height: 37)
+                .frame(width: 37, height: 37)
         }
 
     }
-    
+
 }

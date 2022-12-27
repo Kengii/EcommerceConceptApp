@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct SearchView: View {
-    
+
     @ObservedObject var viewModel: HomeViewModel
-    
+
     var body: some View {
         HStack {
             ZStack {
@@ -18,8 +18,8 @@ struct SearchView: View {
                 TextField("search", text: $viewModel.searchText)
                     .padding([.leading, .trailing])
             }
-            .cornerRadius(17)
-            .frame(height: 34)
+                .cornerRadius(17)
+                .frame(height: 34)
             Button {
                 return
             } label: {
@@ -29,11 +29,11 @@ struct SearchView: View {
                         .foregroundColor(.white)
                 }
             }
-            .clipShape(Circle())
-            .frame(width: 34, height: 34)
+                .clipShape(Circle())
+                .frame(width: 34, height: 34)
 
         }
-        .padding()
+            .padding()
     }
 }
 

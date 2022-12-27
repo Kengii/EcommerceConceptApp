@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct HotSalesView: View {
-    
+
     @Binding var hotSalesItems: [Product]
-    
+
     var body: some View {
         VStack {
             TabView {
@@ -29,13 +29,13 @@ struct HotSalesView: View {
                                             .fontWeight(.bold)
                                             .foregroundColor(.white)
                                     }
-                                    .frame(width: 27)
+                                        .frame(width: 27)
                                 }
                                 MarkText(product.title, size: 25)
                                     .foregroundColor(.white)
                                 MarkText(product.subtitle, size: 11)
                                     .foregroundColor(.white)
-                                
+
                                 Button {
                                     print("Buy tapped")
                                 } label: {
@@ -50,13 +50,13 @@ struct HotSalesView: View {
                             }
                             Spacer()
                         }
-                        .padding(.leading, 23)
-                        .padding([.top, .bottom], 32)
+                            .padding(.leading, 23)
+                            .padding([.top, .bottom], 32)
                     }
                 }
             }
-            .background(.black)
-            .tabViewStyle(.page(indexDisplayMode: .never))
+                .background(.black)
+                .tabViewStyle(.page(indexDisplayMode: .never))
         }
     }
     func getImageData(from product: Product) -> UIImage {

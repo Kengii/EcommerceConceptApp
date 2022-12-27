@@ -20,31 +20,31 @@ final class ApiManager: API {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         self.decoder = decoder
     }
-    
+
     let decoder: JSONDecoder
-    
+
     func getHomeStore() -> AnyPublisher<HomeData, Never> {
         let link = "https://run.mocky.io/v3/654bd15e-b121-49ba-a588-960956b15175"
         guard let url = URL(string: link) else {
             return Just(HomeData(homeStore: [],
-                                 bestSeller: [])).eraseToAnyPublisher()
+                bestSeller: [])).eraseToAnyPublisher()
         }
-        
+
         return URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
             .decode(type: HomeData.self, decoder: decoder)
             .catch { error in Just(HomeData(homeStore: [],
-                                            bestSeller: [])) }
+            bestSeller: [])) }
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }
-    
+
     func getProductDetail() -> AnyPublisher<ProductDetail, Never> {
         let link = "https://run.mocky.io/v3/6c14c560-15c6-4248-b9d2-b4508df7d4f5"
         guard let url = URL(string: link) else {
             return Just(ProductDetail()).eraseToAnyPublisher()
         }
-        
+
         return URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
             .decode(type: ProductDetail.self, decoder: decoder)
@@ -52,7 +52,7 @@ final class ApiManager: API {
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }
-    
+
     func getBasketInfo() -> AnyPublisher<Basket, Never> {
         let link = "https://run.mocky.io/v3/53539a72-3c5f-4f30-bbb1-6ca10d42c149"
         guard let url = URL(string: link) else {

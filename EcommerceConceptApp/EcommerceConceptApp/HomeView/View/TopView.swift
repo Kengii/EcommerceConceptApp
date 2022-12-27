@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct TopView: View {
-    
-    
-    
+
     var body: some View {
         HStack {
             Spacer()
@@ -20,10 +18,7 @@ struct TopView: View {
             Image(systemName: "chevron.down")
                 .foregroundColor(.gray)
             Spacer()
-            
         }
-        
-        
     }
 }
 

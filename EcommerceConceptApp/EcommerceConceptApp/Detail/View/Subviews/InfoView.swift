@@ -118,7 +118,7 @@ struct InfoView: View {
                                             MarkText("\(capacity) GB", size: 13, weight: .bold)
                                                 .foregroundColor(viewModel.selectedCapacity == capacity ? .white : .gray)
                                         }
-                                        .onTapGesture {
+                                            .onTapGesture {
                                             withAnimation(.linear(duration: 0.2)) {
                                                 viewModel.selectedCapacity = capacity
                                             }
@@ -127,9 +127,9 @@ struct InfoView: View {
                                 }
                             }
                         }
-                        .padding(.leading)
-                        .padding(.trailing, 50)
-                        .frame(height: 50)
+                            .padding(.leading)
+                            .padding(.trailing, 50)
+                            .frame(height: 50)
                         Button {
                             viewModel.didTapAddToCart()
                         } label: {
@@ -145,7 +145,7 @@ struct InfoView: View {
                                 }
                             }
                         }
-                        .padding()
+                            .padding()
                     }
                 }
                 Spacer()

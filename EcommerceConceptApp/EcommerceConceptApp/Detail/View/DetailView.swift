@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct DetailView: View {
-    
+
     @ObservedObject var viewModel: DetailViewModel
-    
+
     var body: some View {
         VStack {
             HStack {
@@ -27,12 +27,12 @@ struct DetailView: View {
                         Image("cart")
                             .foregroundColor(.white)
                     }
-                    
+
                 }
-                .frame(width: 37, height: 37)
+                    .frame(width: 37, height: 37)
             }
-            
-            .padding()
+
+                .padding()
             PageView(imageData: viewModel.detail.imagesData)
                 .frame(height: 300)
             InfoView()
